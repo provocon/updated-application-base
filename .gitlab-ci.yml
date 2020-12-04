@@ -13,6 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Relies on the following Variables to be set:
+#
+# External Container Repository:
+#   DH_REGISTRY_USER
+#   DH_REGISTRY_PASSWORD
 image: provocon/coremedia-build:latest
 
 services:
@@ -26,6 +31,8 @@ variables:
 
 build:
   stage: image
+  except:
+  - tags
   script:
     - ./gradlew docker
     - docker images
