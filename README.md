@@ -19,7 +19,7 @@ container addressing some upgradable packages in these containers.
 
 ## Availability
 
-This container can be used via the canonical name `provocon/updated-base-image`.
+This container can be used via the canonical name `provocon/updated-application-base`.
 The tag `latest` should be expected to usable for the latest release by 
 [CoreMedia][coremedia].
 
@@ -38,15 +38,15 @@ docker build -t <myname> .
 So, for the current version this is
 
 ```
-docker build -t provocon/updated-base-image:2007.1 .
-docker build -t provocon/updated-base-image:2007 .
-docker build -t provocon/updated-base-image:latest .
+docker build -t provocon/updated-application-base:2007.1 .
+docker build -t provocon/updated-application-base:2007 .
+docker build -t provocon/updated-application-base:latest .
 ```
 
 ```
-docker push provocon/updated-base-image:2007.1
-docker push provocon/updated-base-image:2007
-docker push provocon/updated-base-image:latest
+docker push provocon/updated-application-base:2007.1
+docker push provocon/updated-application-base:2007
+docker push provocon/updated-application-base:latest
 ```
 
 ### Scripted Build
@@ -67,14 +67,14 @@ which does all the steps above for you except building the base-container.
 Test the generated resulting container with
 
 ```
-docker run -it --entrypoint=/bin/bash provocon/updated-base-image:2.2.1-openjdk-11-jre
+docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.2.1-openjdk-11-jre
 ```
 
 [sencha]: https://www.sencha.com/products/extjs/cmd-download/
 [coremedia]: https://www.coremedia.com/
 [gitlabci]: https://gitlab.com/
-[issues]: https://github.com/provocon/updated-base-image-docker/issues
-[github]: https://github.com/provocon/updated-base-image-docker
-[gitlab]: https://gitlab.com/provocon/updated-base-image-docker
+[issues]: https://github.com/provocon/updated-application-base/issues
+[github]: https://github.com/provocon/updated-application-base
+[gitlab]: https://gitlab.com/provocon/updated-application-base
 [maven]: https://maven.apache.org/
 [gradle]: https://gradle.org/
