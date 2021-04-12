@@ -38,15 +38,11 @@ docker build -t <myname> .
 So, for the current version this is
 
 ```
-docker build -t provocon/updated-application-base:2007.1 .
-docker build -t provocon/updated-application-base:2007 .
-docker build -t provocon/updated-application-base:latest .
+docker build -t provocon/updated-application-base:2.2.1-openjdk-11-jre .
 ```
 
 ```
-docker push provocon/updated-application-base:2007.1
-docker push provocon/updated-application-base:2007
-docker push provocon/updated-application-base:latest
+docker push provocon/updated-application-base:2.2.1-openjdk-11-jre
 ```
 
 ### Scripted Build
@@ -54,9 +50,7 @@ docker push provocon/updated-application-base:latest
 Alternatively you could use the [Gradle Build Tool][gradle] and issue
 
 ```
-gradle -PbuildTag=2007.1  dockerPush
-gradle -PbuildTag=2007    dockerPush
-gradle -PbuildTag=latest dockerPush
+gradle -PbuildTag=2.2.1-openjdk-11-jre dockerPush
 ```
 
 which does all the steps above for you except building the base-container.
