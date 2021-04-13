@@ -1,6 +1,6 @@
 # Java Application Base Container
 
-This repository contains the necessary parts to create a Docker container a 
+This repository contains the necessary parts to create a Docker container for a 
 slightly enhanced version of the CoreMedia Java Application Base Container used
 by CoreMedia Content Cloud (CMCC) workspaces 20nm and up.
 
@@ -20,7 +20,7 @@ container addressing some upgradable packages in these containers.
 ## Availability
 
 This container can be used via the canonical name `provocon/updated-application-base`.
-The tag `latest` should be expected to usable for the latest release by 
+The tag `latest` should be expected to be usable for the latest release by 
 [CoreMedia][coremedia].
 
 Tags are named after their respective underlying releases from CoreMedia.
