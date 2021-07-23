@@ -28,18 +28,19 @@ stages:
 
 variables:
   IMAGE_NAME: "${CI_PROJECT_NAMESPACE}/$CI_PROJECT_NAME"
+  CONTAINER_VERSION: "2.3.0-openjdk-11-jre"
 
 build:
   stage: image
   except:
   - tags
   script:
-    - ./gradlew docker
+    - ./gradlew -Pci_version=${CONTAINER_VERSION} docker
     - docker images
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - echo $IMAGE_NAME
-    - docker tag "${IMAGE_NAME}:2.3.0-openjdk-11-jre" "${CI_REGISTRY}/${IMAGE_NAME}:2.3.0-openjdk-11-jre"
-    - docker push "${CI_REGISTRY}/${IMAGE_NAME}:2.3.0-openjdk-11-jre"
+    - docker tag "${IMAGE_NAME}:${CONTAINER_VERSION}" "${CI_REGISTRY}/${IMAGE_NAME}:${CONTAINER_VERSION}"
+    - docker push "${CI_REGISTRY}/${IMAGE_NAME}:${CONTAINER_VERSION}"
     - docker image save -o build/${CI_PROJECT_NAME}.ci ${IMAGE_NAME}
   artifacts:
     paths:
@@ -55,7 +56,7 @@ release:
     - ./gradlew docker
     - docker login -u $DH_REGISTRY_USER -p $DH_REGISTRY_PASSWORD
     - echo $IMAGE_NAME
-    - docker push "${IMAGE_NAME}:2.3.0-openjdk-11-jre"
+    - docker push "${IMAGE_NAME}:${CONTAINER_VERSION}"
     - docker image save -o build/${CI_PROJECT_NAME}.ci ${IMAGE_NAME}
   artifacts:
     paths:
