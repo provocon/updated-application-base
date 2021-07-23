@@ -1,5 +1,5 @@
 #
-# Copyright 2020 Provocon.
+# Copyright 2020-2021 Provocon.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,6 @@
 ARG JAVA_APPLICATION_BASE_IMAGE_TAG
 ARG JAVA_APPLICATION_BASE_IMAGE_REPO
 FROM ${JAVA_APPLICATION_BASE_IMAGE_REPO}:${JAVA_APPLICATION_BASE_IMAGE_TAG}
-# This results in minor update for e.g. openldap, krb5 fixing security vulnerabilities
+# This results in minor update for e.g. lz4, openldap, krb5 fixing security vulnerabilities
 USER root
 RUN apt update && apt -yq upgrade
