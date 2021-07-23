@@ -16,6 +16,6 @@
 ARG JAVA_APPLICATION_BASE_IMAGE_TAG
 ARG JAVA_APPLICATION_BASE_IMAGE_REPO
 FROM ${JAVA_APPLICATION_BASE_IMAGE_REPO}:${JAVA_APPLICATION_BASE_IMAGE_TAG}
-# This results in minor update for e.g. lz4, openldap, krb5 fixing security vulnerabilities
+# This might result in minor updates to fix security vulnerabilities
 USER root
-RUN apt update && apt -yq upgrade
+RUN apt update && apt -yq upgrade && apt -yq autoremove

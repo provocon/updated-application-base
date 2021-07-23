@@ -38,11 +38,11 @@ docker build -t <myname> .
 So, for the current version this is
 
 ```
-docker build -t provocon/updated-application-base:2.2.1-openjdk-11-jre .
+docker build -t provocon/updated-application-base:2.3.0-openjdk-11-jre .
 ```
 
 ```
-docker push provocon/updated-application-base:2.2.1-openjdk-11-jre
+docker push provocon/updated-application-base:2.3.0-openjdk-11-jre
 ```
 
 ### Scripted Build
@@ -50,7 +50,7 @@ docker push provocon/updated-application-base:2.2.1-openjdk-11-jre
 Alternatively you could use the [Gradle Build Tool][gradle] and issue
 
 ```
-gradle -PbuildTag=2.2.1-openjdk-11-jre dockerPush
+gradle -PbuildTag=2.3.0-openjdk-11-jre dockerPush
 ```
 
 which does all the steps above for you except building the base-container.
@@ -61,7 +61,7 @@ which does all the steps above for you except building the base-container.
 Test the generated resulting container with
 
 ```
-docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.2.1-openjdk-11-jre
+docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.3.0-openjdk-11-jre
 ```
 
 [sencha]: https://www.sencha.com/products/extjs/cmd-download/
