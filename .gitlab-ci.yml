@@ -28,7 +28,7 @@ stages:
 
 variables:
   IMAGE_NAME: "${CI_PROJECT_NAMESPACE}/$CI_PROJECT_NAME"
-  CONTAINER_VERSION: "2.3.0-openjdk-11-jre"
+  CONTAINER_VERSION: "2.3.1-openjdk-11-jre"
 
 build:
   stage: image
