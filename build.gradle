@@ -21,7 +21,7 @@ apply plugin: 'java-base'
 
 defaultTasks 'docker'
 
-version=project.hasProperty('ci_version') ? "$ci_version" : 'MISSING PARAMETER ci_version FOR CONTAINER IMAGE VERSION'
+version=project.hasProperty('ci_version') ? "$ci_version" : '2.3.1-openjdk-11-jre'
 
 /* Dummy configuration to be able to edit the wiki contents easily from within my IDE. */
 sourceSets {
