@@ -50,7 +50,7 @@ docker push provocon/updated-application-base:2.3.1-openjdk-11-jre
 Alternatively you could use the [Gradle Build Tool][gradle] and issue
 
 ```
-gradle -PbuildTag=2.3.1-openjdk-11-jre dockerPush
+./gradlew -Pci_version=2.3.1-openjdk-11-jre dockerPush
 ```
 
 which does all the steps above for you except building the base-container.

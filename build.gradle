@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 plugins {
-  id 'com.palantir.docker' version '0.27.0' // https://github.com/palantir/gradle-docker
+  id 'com.palantir.docker' version '0.30.0' // https://github.com/palantir/gradle-docker
 }
 
 apply plugin: 'java-base'
 
-version=project.hasProperty('ci_version') ? "$ci_version" : '2.3.1-openjdk-11-jre'
+defaultTasks 'docker'
+
+version=project.hasProperty('ci_version') ? "$ci_version" : 'MISSING PARAMETER ci_version FOR CONTAINER IMAGE VERSION'
 
 /* Dummy configuration to be able to edit the wiki contents easily from within my IDE. */
 sourceSets {
