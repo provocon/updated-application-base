@@ -19,11 +19,25 @@ container addressing some upgradable packages in these containers.
 
 ## Availability
 
-This container can be used via the canonical name `provocon/updated-application-base`.
-The tag `latest` should be expected to be usable for the latest release by 
-[CoreMedia][coremedia].
+This container can be used via the canonical name `provocon/updated-application-base`
+with the same version tag as used by [CoreMedia][coremedia] in their respective
+version of the workspace.
 
-Tags are named after their respective underlying releases from CoreMedia.
+Tags are thus named after their respective underlying releases from CoreMedia.
+
+## Usage
+
+With CMCC-10 change the application base image in any of the pom files
+
+```
+<docker.java-application-base-image.repo>provocon/updated-application-base</docker.java-application-base-image.repo>
+```
+
+With CMCC-11 change the application base image in any of the pom files
+
+```
+<application.image-base>provocon/updated-application-base:2.3.1-openjdk-11-jre</application.image-base>
+```
 
 ## Build
 
