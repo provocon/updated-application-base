@@ -55,7 +55,7 @@ release:
   script:
     - ./gradlew -Pci_version=${CI_COMMIT_REF_NAME} docker
     - docker login -u $DH_REGISTRY_USER -p $DH_REGISTRY_PASSWORD
-    - echo $IMAGE_NAME
+    - echo "$IMAGE_NAME $CI_COMMIT_REF_NAME"
     - docker push "${IMAGE_NAME}:${CI_COMMIT_REF_NAME}"
     - docker image save -o build/${CI_PROJECT_NAME}.ci ${IMAGE_NAME}
   artifacts:
