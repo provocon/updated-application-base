@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-2021 Provocon.
+ * Copyright 2020-2022 Provocon.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 plugins {
-  id 'com.palantir.docker' version '0.30.0' // https://github.com/palantir/gradle-docker
+  id 'com.palantir.docker' version '0.32.0' // https://github.com/palantir/gradle-docker
 }
 
 apply plugin: 'java-base'
