@@ -45,23 +45,18 @@ jobs:
       with:
         arguments: docker
 
-      # Login against a Docker registry except on PR
-      # https://github.com/docker/login-action
-      - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Log into registry ${{ env.REGISTRY }}
+      uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Extract metadata (tags, labels) for Docker
-      # https://github.com/docker/metadata-action
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+    - name: Extract Docker metadata
+      id: meta
+      uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Push Docker Image
-        id: push
-        run: docker push "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$(docker images ${{ env.IMAGE_NAME }} --format {{.Tag}})"
+    - name: Push Docker Image
+      run: docker tag ${{ env.IMAGE_NAME }}:$(docker images ${{ env.IMAGE_NAME }} --format "{{.Tag}}") ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$(docker images ${{ env.IMAGE_NAME }} --format "{{.Tag}}") ; docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$(docker images ${{ env.IMAGE_NAME }} --format "{{.Tag}}")
