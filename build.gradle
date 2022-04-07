@@ -21,7 +21,7 @@ apply plugin: 'java-base'
 
 defaultTasks 'docker'
 
-version=project.hasProperty('ci_version') ? "$ci_version" : '2.4.2-openjdk-11-jre'
+version=project.hasProperty('ci_version') ? "$ci_version" : '2.4.3-openjdk-11-jre'
 
 /* Dummy configuration to be able to edit the wiki contents easily from within my IDE. */
 sourceSets {
