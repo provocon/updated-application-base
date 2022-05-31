@@ -36,7 +36,7 @@ With CMCC-10 change the application base image in any of the pom files
 With CMCC-11 change the application base image in any of the pom files
 
 ```
-<application.image-base>provocon/updated-application-base:2.4.0-openjdk-11-jre</application.image-base>
+<application.image-base>provocon/updated-application-base:2.4.4-temurin-11-jre</application.image-base>
 ```
 
 ## Build
@@ -52,13 +52,13 @@ docker build -t <myname> .
 So, for the current version this is
 
 ```
-docker build --build-arg JAVA_APPLICATION_BASE_IMAGE_TAG=2.4.3-openjdk-11-jre \
+docker build --build-arg JAVA_APPLICATION_BASE_IMAGE_TAG=2.4.4-temurin-11-jre \
  --build-arg JAVA_APPLICATION_BASE_IMAGE_REPO=coremedia/java-application-base \
- -t provocon/updated-application-base:2.4.3-openjdk-11-jre .
+ -t provocon/updated-application-base:2.4.4-temurin-11-jre .
 ```
 
 ```
-docker push provocon/updated-application-base:2.4.3-openjdk-11-jre
+docker push provocon/updated-application-base:2.4.4-temurin-11-jre
 ```
 
 ### Scripted Build
@@ -66,7 +66,7 @@ docker push provocon/updated-application-base:2.4.3-openjdk-11-jre
 Alternatively you could use the [Gradle Build Tool][gradle] and issue
 
 ```
-./gradlew -Pci_version=2.4.3-openjdk-11-jre dockerPush
+./gradlew -Pci_version=2.4.4-temurin-11-jre dockerPush
 ```
 
 which does all the steps above for you.
@@ -77,7 +77,7 @@ which does all the steps above for you.
 Test the generated resulting container with
 
 ```
-docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.4.3-openjdk-11-jre
+docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.4.4-temurin-11-jre
 ```
 
 [sencha]: https://www.sencha.com/products/extjs/cmd-download/
