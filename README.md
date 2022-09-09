@@ -52,13 +52,13 @@ docker build -t <myname> .
 So, for the current version this is
 
 ```
-docker build --build-arg JAVA_APPLICATION_BASE_IMAGE_TAG=2.4.4-temurin-11-jre \
+docker build --build-arg JAVA_APPLICATION_BASE_IMAGE_TAG=2.4.5-temurin-11-jre-focal \
  --build-arg JAVA_APPLICATION_BASE_IMAGE_REPO=coremedia/java-application-base \
- -t provocon/updated-application-base:2.4.4-temurin-11-jre .
+ -t provocon/updated-application-base:2.4.5-temurin-11-jre-focal .
 ```
 
 ```
-docker push provocon/updated-application-base:2.4.4-temurin-11-jre
+docker push provocon/updated-application-base:2.4.5-temurin-11-jre-focal
 ```
 
 ### Scripted Build
@@ -66,7 +66,7 @@ docker push provocon/updated-application-base:2.4.4-temurin-11-jre
 Alternatively you could use the [Gradle Build Tool][gradle] and issue
 
 ```
-./gradlew -Pci_version=2.4.4-temurin-11-jre dockerPush
+./gradlew -Pci_version=2.4.5-temurin-11-jre-focal dockerPush
 ```
 
 which does all the steps above for you.
@@ -77,7 +77,7 @@ which does all the steps above for you.
 Test the generated resulting container with
 
 ```
-docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.4.4-temurin-11-jre
+docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.4.5-temurin-11-jre-focal
 ```
 
 [sencha]: https://www.sencha.com/products/extjs/cmd-download/

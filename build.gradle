@@ -21,7 +21,7 @@ apply plugin: 'java-base'
 
 defaultTasks 'docker'
 
-version=project.hasProperty('ci_version') ? "$ci_version" : '2.4.4-temurin-11-jre'
+version=project.hasProperty('ci_version') ? "$ci_version" : '2.4.5-temurin-11-jre-focal'
 
 /* Dummy configuration to be able to edit the wiki contents easily from within my IDE. */
 sourceSets {
