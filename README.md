@@ -1,39 +1,41 @@
-# Java Application Base Container
+# Java Application Base Image
 
-This repository contains the necessary parts to create a Docker container for a 
-slightly enhanced version of the CoreMedia Java Application Base Container used
+This repository contains the necessary parts to create a Docker image for a
+slightly enhanced version of the CoreMedia Java Application Base Image used
 by CoreMedia Content Cloud (CMCC) workspaces 20nm and up.
 
-The home of this repository is at [github][github] with an automated mirror at
-[gitlab][gitlab].
+The home of this repository is at [GitHub][github] with an automated mirror at
+[GitLab][gitlab].
 
 ## Feedback
 
-Please use the [issues][issues] section of this repository at [github][github] 
+Please use the [issues][issues] section of this repository at [GitHub][github]
 for feedback. 
 
 ## Goals
 
-This container is intended for use as a plug in replacement for the original
-container addressing some upgradable packages in these containers.
+This image is intended for use as a plug in replacement for the original
+image, addressing some upgradable packages in these images.
 
 ## Availability
 
-This container can be used via the canonical name `provocon/updated-application-base`
+This image can be used via the canonical name `provocon/updated-application-base`
 with the same version tag as used by [CoreMedia][coremedia] in their respective
 version of the workspace.
 
 Tags are thus named after their respective underlying releases from CoreMedia.
 
+Find the web overview at [Docker Hub][docker]
+
 ## Usage
 
-With CMCC-10 change the application base image in any of the pom files
+With CMCC-10, change the application base image in any of the pom files
 
 ```
 <docker.java-application-base-image.repo>provocon/updated-application-base</docker.java-application-base-image.repo>
 ```
 
-With CMCC-11 change the application base image in any of the pom files
+With CMCC-11, change the application base image in any of the pom files
 
 ```
 <application.image-base>provocon/updated-application-base:2.4.4-temurin-11-jre</application.image-base>
@@ -63,7 +65,7 @@ docker push provocon/updated-application-base:2.4.5-temurin-11-jre-focal
 
 ### Scripted Build
 
-Alternatively you could use the [Gradle Build Tool][gradle] and issue
+Alternatively, you could use the [Gradle Build Tool][gradle] and issue
 
 ```
 ./gradlew -Pci_version=2.4.5-temurin-11-jre-focal dockerPush
@@ -83,6 +85,7 @@ docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.4.5-te
 [sencha]: https://www.sencha.com/products/extjs/cmd-download/
 [coremedia]: https://www.coremedia.com/
 [gitlabci]: https://gitlab.com/
+[docker]: https://hub.docker.com/r/provocon/updated-application-base
 [issues]: https://github.com/provocon/updated-application-base/issues
 [github]: https://github.com/provocon/updated-application-base
 [gitlab]: https://gitlab.com/provocon/updated-application-base
