@@ -45,7 +45,7 @@ build:
   artifacts:
     paths:
     - build/*.ci
-    expire_in: 5 days
+    expire_in: 3 days
     name: ${CI_BUILD_STAGE}
 
 release:
@@ -61,4 +61,5 @@ release:
   artifacts:
     paths:
     - build/*.ci
+    expire_in: 5 days
     name: ${CI_BUILD_STAGE}
