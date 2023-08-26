@@ -1,5 +1,5 @@
 #
-# Copyright 2020-2022 Provocon.
+# Copyright 2020-2023 Provocon.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,4 +18,4 @@ ARG JAVA_APPLICATION_BASE_IMAGE_REPO
 FROM ${JAVA_APPLICATION_BASE_IMAGE_REPO}:${JAVA_APPLICATION_BASE_IMAGE_TAG}
 # This might result in minor updates to fix security vulnerabilities
 USER root
-RUN apt update && apt -yq upgrade && apt -yq autoremove && apt clean
+RUN apt update && apt -yq upgrade && apt -yq autoremove && apt clean && (cd /var ; rm -f $(find -name "*-old")) && rm -rf /opt/java/openjdk/man/ja* /opt/java/openjdk/NOTICE /opt/java/openjdk/legal
