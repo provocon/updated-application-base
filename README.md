@@ -4,6 +4,10 @@ This repository contains the necessary parts to create a Docker image for a
 slightly enhanced version of the CoreMedia Java Application Base Image used
 by CoreMedia Content Cloud (CMCC) workspaces 20nm and up.
 
+At the time of writing - August 2023 - the intermediate image is not needed for
+updating packages in the original images from CoreMedia to deal with known
+vulnerabilities.
+
 The home of this repository is at [GitHub][github] with an automated mirror at
 [GitLab][gitlab].
 
@@ -38,7 +42,7 @@ With CMCC-10, change the application base image in any of the pom files
 With CMCC-11, change the application base image in any of the pom files
 
 ```
-<application.image-base>provocon/updated-application-base:2.4.4-temurin-11-jre</application.image-base>
+<application.image-base>provocon/updated-application-base:1.2-cm-11.0-temurin-jre</application.image-base>
 ```
 
 ## Build
@@ -54,13 +58,13 @@ docker build -t <myname> .
 So, for the current version this is
 
 ```
-docker build --build-arg JAVA_APPLICATION_BASE_IMAGE_TAG=2.4.5-temurin-11-jre-focal \
+docker build --build-arg JAVA_APPLICATION_BASE_IMAGE_TAG=1.2-cm-11.0-temurin-jre \
  --build-arg JAVA_APPLICATION_BASE_IMAGE_REPO=coremedia/java-application-base \
- -t provocon/updated-application-base:2.4.5-temurin-11-jre-focal .
+ -t provocon/updated-application-base:1.2-cm-11.0-temurin-jre .
 ```
 
 ```
-docker push provocon/updated-application-base:2.4.5-temurin-11-jre-focal
+docker push provocon/updated-application-base:1.2-cm-11.0-temurin-jre
 ```
 
 ### Scripted Build
@@ -68,7 +72,7 @@ docker push provocon/updated-application-base:2.4.5-temurin-11-jre-focal
 Alternatively, you could use the [Gradle Build Tool][gradle] and issue
 
 ```
-./gradlew -Pci_version=2.4.5-temurin-11-jre-focal dockerPush
+./gradlew -Pci_version=1.2-cm-11.0-temurin-jre dockerPush
 ```
 
 which does all the steps above for you.
@@ -79,7 +83,7 @@ which does all the steps above for you.
 Test the generated resulting container with
 
 ```
-docker run -it --entrypoint=/bin/bash provocon/updated-application-base:2.4.5-temurin-11-jre-focal
+docker run -it --entrypoint=/bin/bash provocon/updated-application-base:1.2-cm-11.0-temurin-jre
 ```
 
 [sencha]: https://www.sencha.com/products/extjs/cmd-download/
